@@ -30,6 +30,8 @@ jobs:
         with:
           # GitHub Pages デプロイ用の Orphan ブランチ名を指定する
           branch: gh-pages
+          folder: .
+          baseDir: build/WebGL
 
           # デプロイ用ビルドフォルダパスを指定する
           # GameCI の Builder はデフォルトでは build フォルダにビルド内容を出力する
