@@ -13,7 +13,7 @@ namespace Unity1Week_20230619.Main
 
     public class MiniGameControllerBase : MonoBehaviour
     {
-        [SerializeField] GameObject gameObject;
+        [SerializeField] protected GameObject miniGameObject;
         protected TextMeshProUGUI Time, Announce, ReadyStatus;
         protected TimerController timerController = new TimerController();
         protected Coroutine drawResultCoroutine;
@@ -43,12 +43,12 @@ namespace Unity1Week_20230619.Main
         {
             gameState = GameState.Init;
             timerController.ResetTimer();
-            gameObject.SetActive(true);
+            miniGameObject.SetActive(true);
 
             gameController  = GetComponent<GameController>();
-            Time            = gameObject.transform.Find("Canvas_1/Time").GetComponent<TextMeshProUGUI>();
-            Announce        = gameObject.transform.Find("Canvas_1/Announce").GetComponent<TextMeshProUGUI>();
-            ReadyStatus     = gameObject.transform.Find("Canvas_1/ReadyStatus").GetComponent<TextMeshProUGUI>();
+            Time            = miniGameObject.transform.Find("Canvas_1/Time").GetComponent<TextMeshProUGUI>();
+            Announce        = miniGameObject.transform.Find("Canvas_1/Announce").GetComponent<TextMeshProUGUI>();
+            ReadyStatus     = miniGameObject.transform.Find("Canvas_1/ReadyStatus").GetComponent<TextMeshProUGUI>();
 
             Time.text = "残り時間：" + timerController.GetTime();
             StartCoroutine(timerController.Countdown());
@@ -82,7 +82,7 @@ namespace Unity1Week_20230619.Main
             yield return new WaitForSeconds(3.0f);
 
             // スロットへ
-            gameObject.SetActive(false);
+            miniGameObject.SetActive(false);
             gameController.SetStartSlotAndGameID(false);
 
             drawResultCoroutine = null;
