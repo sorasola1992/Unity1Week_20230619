@@ -68,7 +68,7 @@ namespace Unity1Week_20230619.Main
         }
 
         // 結果表示
-        protected IEnumerator DrawResult(float score, int gameID)
+        protected virtual IEnumerator DrawResult(float score, int gameID)
         {
             timerController.StopTimer();
             Announce.text = "終了\n今回のスコア：" + score;
