@@ -12,7 +12,7 @@ namespace Unity1Week_20230619.Main
 
         public void Control()
         {
-            base.Control();
+            base.TimeUpdate();
 
             if (gameState != GameState.Play) return;
 

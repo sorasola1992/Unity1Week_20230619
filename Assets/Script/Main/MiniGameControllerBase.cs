@@ -54,18 +54,13 @@ namespace Unity1Week_20230619.Main
             StartCoroutine(timerController.Countdown());
         }
 
-        protected void Control()
-        {
-            //
-            TimeUpdate();
-
-        }
-
         // 時間処理
-        void TimeUpdate()
+        protected void TimeUpdate(bool draw = true)
         {
+            if (!draw) Time.text = "";
+            else       Time.text = "残り時間：" + timerController.GetTime();
+            
             if (timerController.ElapsedTime == timerController.startTime) ReadyStatus.text = timerController.AnnounceText;
-            else                                                          Time.text = "残り時間：" + timerController.GetTime();
             timerController.TimeUpdate();
 
             // 経過時間が進んだ時ゲーム開始
