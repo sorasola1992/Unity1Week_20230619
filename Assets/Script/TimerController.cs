@@ -8,7 +8,7 @@ namespace Unity1Week_20230619
         float elapsedTime = 0f;
         string announceText;
         bool isRunning = false;
-        public readonly float startTime = 5f;
+        public float startTime;
 
         public float ElapsedTime => elapsedTime;
         public string AnnounceText => announceText;
@@ -51,8 +51,9 @@ namespace Unity1Week_20230619
             isRunning = false;
         }
 
-        public void ResetTimer()
+        public void ResetTimer(float time)
         {
+            startTime = time;
             elapsedTime = startTime;
         }
 

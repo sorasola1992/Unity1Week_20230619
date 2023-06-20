@@ -39,10 +39,10 @@ namespace Unity1Week_20230619.Main
             }
         }
 
-        protected void Init()
+        protected void Init(float time = 5f)
         {
             gameState = GameState.Init;
-            timerController.ResetTimer();
+            timerController.ResetTimer(time);
             miniGameObject.SetActive(true);
 
             gameController  = GetComponent<GameController>();
