@@ -77,6 +77,8 @@ namespace Unity1Week_20230619
         /// <summary>
         /// SE再生                      <br />
         /// 0.test用                    <br />
+        /// 1.hit                       <br />
+        /// 2.miss                      <br />
         /// </summary>
 
         public void PlaySe(int index)
