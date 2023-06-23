@@ -552,6 +552,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6081874507934406512, guid: 37db9461d07a7204c942a0c2e2ef7152, type: 3}
+      propertyPath: bgm.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081874507934406512, guid: 37db9461d07a7204c942a0c2e2ef7152, type: 3}
+      propertyPath: bgm.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ee884a3e724498143ba7e058b312f6f5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37db9461d07a7204c942a0c2e2ef7152, type: 3}
 --- !u!1001 &1094638056
@@ -777,7 +785,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1446712934
+--- !u!1 &1335886676
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -785,8 +793,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1446712936}
-  - component: {fileID: 1446712935}
+  - component: {fileID: 1335886678}
+  - component: {fileID: 1335886677}
   m_Layer: 0
   m_Name: "\u30C1\u30E3\u30EC\u30F3\u30B8_-_8bit"
   m_TagString: Untagged
@@ -794,13 +802,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1446712935
+--- !u!82 &1335886677
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446712934}
+  m_GameObject: {fileID: 1335886676}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -890,13 +898,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1446712936
+--- !u!4 &1335886678
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446712934}
+  m_GameObject: {fileID: 1335886676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
