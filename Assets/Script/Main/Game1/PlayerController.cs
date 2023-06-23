@@ -137,7 +137,7 @@ namespace Unity1Week_20230619.Main.Game1
         {
 
             // 発射
-            if (Input.GetButtonDown("Submit"))
+            if (Input.GetButtonDown("Submit") && !isLaunch)
             {
                 rb.AddForce(transform.up * burst * (int)(playerParameter.param.power * 0.1));
                 isLaunch = true;

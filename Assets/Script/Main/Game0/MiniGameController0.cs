@@ -99,27 +99,27 @@ namespace Unity1Week_20230619.Main.Game0
                 switch (key)
                 {
                     case "1":
-                        score += value * 10;
+                        score += value * 100;
                         ResultText[0].text = $"×{value}";
                         break;
                     case "3":
-                        score += value * 20;
+                        score += value * 200;
                         ResultText[1].text = $"×{value}";
                         break;
                     case "5":
-                        score += value * 30;
+                        score += value * 300;
                         ResultText[2].text = $"×{value}";
                         break;
                     case "7":
-                        score += value * -50;
+                        score += value * -500;
                         ResultText[3].text = $"×{value}";
                         break;
                     case "9":
-                        score += value * 700;
+                        score += value * 7000;
                         ResultText[4].text = $"×{value}";
                         break;
                     case "11":
-                        score += value * 1000;
+                        score += value * 10000;
                         ResultText[5].text = $"×{value}";
                         break;
                     default:

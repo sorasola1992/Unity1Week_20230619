@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using unityroom.Api;
 
 namespace Unity1Week_20230619.Main
 {
@@ -92,6 +93,7 @@ namespace Unity1Week_20230619.Main
                 if (miniGameAllEnd)
                 {
                     naichilab.RankingLoader.Instance.SendScoreAndShowRanking(totalScore, gameID);
+                    UnityroomApiClient.Instance.SendScore(1, totalScore, ScoreboardWriteMode.HighScoreDesc);
                 }
             }
 
