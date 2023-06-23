@@ -97,7 +97,7 @@ namespace Unity1Week_20230619.Main.Game1
         {
             string text = "";
             var param = playerController.playerParameter.param;
-            text = param.id == 6 ? "下を押してください" : "上を押してください";
+            text = param.id == 6 ? "下を押して！" : "上を押して！";
             return text;
         }
     }

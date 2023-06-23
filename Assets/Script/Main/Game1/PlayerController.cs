@@ -74,7 +74,7 @@ namespace Unity1Week_20230619.Main.Game1
                 phase = Phase.Launch;
                 transform.DOComplete();
                 transform.position = new Vector3(OFFSET_POS_X, -4, 0);
-                playerParameter.param.id = 4;
+                playerParameter.param.id = 6;
                 playerSpriteRenderer.sprite = kanimg[playerParameter.param.id];
                 GaugeCanvas.SetActive(false);
                 MissObj.SetActive(false);
@@ -139,16 +139,16 @@ namespace Unity1Week_20230619.Main.Game1
             // 発射
             if (Input.GetButtonDown("Submit") && !isLaunch)
             {
-                rb.AddForce(transform.up * burst * (int)(playerParameter.param.power * 0.1));
+                rb.AddForce(transform.up * burst * (int)(playerParameter.param.power * -0.1));
                 isLaunch = true;
                 rb.simulated = true;
             }
 
             if (!isLaunch)
             {
-                currentRotation -= rotationSpeed;
+                currentRotation += rotationSpeed;
                 // 角度制限
-                if (currentRotation >= 0f || currentRotation <= -180f)
+                if (currentRotation >= 180f || currentRotation <= 0f)
                 {
                     rotationSpeed = -(rotationSpeed);
                 }
