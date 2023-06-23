@@ -15,6 +15,8 @@ namespace Unity1Week_20230619
 
         void Start()
         {
+            SoundManager.Instance.PlayBgm(4);
+
             // 音量調整要素取得
             var parent = GameObject.Find("TitlePanel/Menu").transform;
             for (int i = 0; i < parent.childCount; i++)

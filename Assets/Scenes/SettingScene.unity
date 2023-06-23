@@ -596,12 +596,12 @@ RectTransform:
   - {fileID: 220941549}
   - {fileID: 229599378}
   - {fileID: 425845878}
-  m_Father: {fileID: 1136524631}
-  m_RootOrder: 1
+  m_Father: {fileID: 893047112}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 142, y: 0}
+  m_AnchoredPosition: {x: 232, y: 0}
   m_SizeDelta: {x: 233.27728, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &469713778
@@ -1095,7 +1095,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 469713777}
   m_Father: {fileID: 1136524631}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1404,7 +1405,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 893047112}
-  - {fileID: 469713777}
   m_Father: {fileID: 490763276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844285ce0597dc8449ade424d3f34cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeType: 0
+  volumeType: 1
 --- !u!114 &1249390102
 MonoBehaviour:
   m_ObjectHideFlags: 0

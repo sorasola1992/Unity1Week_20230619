@@ -35,6 +35,9 @@ namespace Unity1Week_20230619
             seaudiosource  = gameObject.AddComponent<AudioSource>();
             bgm = Resources.LoadAll<AudioClip>("audio/bgm");
             se  = Resources.LoadAll<AudioClip>("audio/se");
+
+            bgmaudiosource.volume = bgmvolume;
+            seaudiosource.volume = sevolume;
         }
 
         public float BgmVolume
@@ -63,8 +66,13 @@ namespace Unity1Week_20230619
         }
 
         /// <summary>
-        /// BGM再生               <br />
-        /// 0.test用              <br />
+        /// BGM再生                        <br />
+        /// 0.test用                       <br />
+        /// 1.HAPPYCASINO                  <br />
+        /// 2.あばれるかいぞういきもの     <br />
+        /// 3.ねずみのパーティ             <br />
+        /// 4.チャレンジ_-_8bit            <br />
+        /// 5.レースちっく8bit             <br />
         /// </summary>
         public void PlayBgm(int index)
         {
