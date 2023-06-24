@@ -21,6 +21,7 @@ namespace Unity1Week_20230619.Main
         [SerializeField] GameObject arrow;
         [SerializeField] TextMeshProUGUI ScoreText;
         [SerializeField] TextMeshProUGUI AnnounceText;
+        [SerializeField] ParticleSystem particle;
         List<TextMeshProUGUI> ResultText = new List<TextMeshProUGUI>();
         GameController gameController;
 
@@ -57,13 +58,15 @@ namespace Unity1Week_20230619.Main
         {
             ScoreUpdate();
             ArrowUpdate();
+            ReachEffect();
+
 
             if (drawResultCoroutine != null) return;
             //// TODO test用
             //if (Input.GetKey(KeyCode.UpArrow))
             //{
-            //    standaloneInputModule.enabled = true;
-            //    if (!Function.ContainsScene(Define.GAME_RANKING)) naichilab.RankingLoader.Instance.SendScoreAndShowRanking(3, "01230");
+            //    //standaloneInputModule.enabled = true;
+            //    //if (!Function.ContainsScene(Define.GAME_RANKING)) naichilab.RankingLoader.Instance.SendScoreAndShowRanking(3, "01230");
 
             //}
 
@@ -87,6 +90,7 @@ namespace Unity1Week_20230619.Main
                 {
                     ResultText[reels.Length - 1].text = $"ボーナスポイント　スコア：×1.5倍({totalScore * 1.5 - totalScore})";
                     totalScore *= 1.5f;
+                    particle.Play();
                 }
 
                 ResultText[rankingData.Count].text = "合計：" + totalScore;
@@ -148,10 +152,12 @@ namespace Unity1Week_20230619.Main
                 rc[i].ReelMove();
             }
             gameController.SetStartSlotAndGameID(false);
+            ReelResult.SetActive(false);
             Data.instance.rankingDate.Clear();
             isSlotStopPush = false;
             AnnounceText.text = "リールを止めて";
-
+            particle.Stop();
+            maskTransform[reels.Length - 1].transform.position = new Vector3(6, 0, 1);
         }
 
         public void Stop()
@@ -196,7 +202,6 @@ namespace Unity1Week_20230619.Main
             ReelResult.SetActive(false);
             drawResultCoroutine = null;
         }
-
 
         void ChangImageID(int id)
         {
