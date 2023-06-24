@@ -20,6 +20,7 @@ namespace Unity1Week_20230619.Main
         [SerializeField] GameObject ResultTextPrefab;
         [SerializeField] GameObject arrow;
         [SerializeField] TextMeshProUGUI ScoreText;
+        [SerializeField] TextMeshProUGUI AnnounceText;
         List<TextMeshProUGUI> ResultText = new List<TextMeshProUGUI>();
         GameController gameController;
 
@@ -84,7 +85,7 @@ namespace Unity1Week_20230619.Main
                 bool isAllEqual = rankingData.Select(data => data.GameID).Distinct().Count() == 1;
                 if (isAllEqual)
                 {
-                    ResultText[reels.Length - 1].text = $"ボーナス！　{totalScore}×1.5！";
+                    ResultText[reels.Length - 1].text = $"ボーナスポイント　スコア：×1.5倍({totalScore * 1.5 - totalScore})";
                     totalScore *= 1.5f;
                 }
 
@@ -149,6 +150,7 @@ namespace Unity1Week_20230619.Main
             gameController.SetStartSlotAndGameID(false);
             Data.instance.rankingDate.Clear();
             isSlotStopPush = false;
+            AnnounceText.text = "リールを止めて";
 
         }
 
@@ -228,7 +230,6 @@ namespace Unity1Week_20230619.Main
             return false;
         }
 
-
         void ScoreUpdate()
         {
             var rankingData = Data.instance.rankingDate;
@@ -239,6 +240,30 @@ namespace Unity1Week_20230619.Main
         {
             var index = Mathf.Clamp(Data.instance.rankingDate.Count, 0, maskTransform.Count-1);
             arrow.transform.position = new Vector3(maskTransform[index].position.x, arrow.transform.position.y, 0f);
+        }
+
+
+        void SpeedUpdate()
+        {
+            var index = Mathf.Clamp(Data.instance.rankingDate.Count, 0, maskTransform.Count - 1);
+            rc[index].speed = 0.5f + Data.instance.rankingDate.Sum(data => data.Score) * 0.0001f;
+
+        }
+
+
+        void ReachEffect() 
+        {
+            var rankingData = Data.instance.rankingDate;
+            var judge = rankingData.All(data => data.GameID == rankingData[0].GameID);
+
+            // リーチの時
+            if ((reels.Length - 1 == Data.instance.rankingDate.Count) && (judge))
+            {
+                var randY = Random.Range(-0.2f, 0.2f);
+                maskTransform[reels.Length - 1].transform.position = new Vector3(maskTransform[reels.Length - 1].position.x, randY);
+                AnnounceText.text = "リーチ！！";
+
+            }
         }
     }
 }

@@ -24,12 +24,13 @@ namespace Unity1Week_20230619.Main
         Transform pos;  //リールのTransform
         Vector3 initpos; //リールの初期位置
 
-        public int speed; //リールの回転速度
+        public float speed; //リールの回転速度
         public ReelState state { private set; get; }
 
 
         const int REELMAX = 5;
         const float SLOTSIZE = 1.0f;
+        const float DEFAULTSPEED = 0.5f;
 
 
         // スロットの図柄停止時、コールバック
@@ -129,9 +130,9 @@ namespace Unity1Week_20230619.Main
 
         public void ReelMove()
         {
+            speed = DEFAULTSPEED;
             state = ReelState.Play;
             imgID = -1;
-
         }
     }
 }
