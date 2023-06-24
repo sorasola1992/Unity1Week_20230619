@@ -205,13 +205,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unityroom.client": {
-      "version": "https://github.com/naichilab/unityroom-client-library.git?path=Assets/unityroom",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "a06c9a7f2b267e9aa19664dee1c67074d6ff636b"
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
