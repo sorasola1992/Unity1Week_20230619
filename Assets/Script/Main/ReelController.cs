@@ -1,8 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using DG.Tweening;
+using System.ComponentModel;
 
 namespace Unity1Week_20230619.Main
 {
@@ -10,7 +12,7 @@ namespace Unity1Week_20230619.Main
     {
         Play,
         Stay,
-
+        End,
     }
 
 
@@ -18,6 +20,9 @@ namespace Unity1Week_20230619.Main
     {
         [SerializeField] GameObject[] imgobj; //絵柄のプレハブを格納
         [SerializeField] int[] currentID = new int[REELMAX]; //配列に全体の絵柄idを格納
+        [SerializeField] GameObject FadeCanvasObj;
+
+        Sprite[] slot_sprite = new Sprite[REELMAX];
         GameObject[] tmp_obj = new GameObject[REELMAX];
         Transform[] img_pos = new Transform[REELMAX];
 
@@ -51,13 +56,16 @@ namespace Unity1Week_20230619.Main
             }
         }
 
-
         void Start()
         {
-
             Init();
-
+            FadeCanvasObj = GameObject.Find("Canvas_2");
             imgobj = Resources.LoadAll<GameObject>("SlotPrefab");
+
+            for (var i = 0; i < imgobj.Length; i++)
+            {
+                slot_sprite[i] = imgobj[i].GetComponent<SpriteRenderer>().sprite;
+            }
 
             int[] shufflIDarray = imgobj.Select((_, index) => index).ToArray();
             Function.ShuffleArray(shufflIDarray);
@@ -82,6 +90,8 @@ namespace Unity1Week_20230619.Main
                 img_pos[i] = tmp_obj[i].GetComponent<Transform>();
                 img_pos[i].localPosition = pos;
             }
+
+            FadeCanvasObj.GetComponent<CanvasGroup>().alpha=0;
         }
           
 
@@ -109,11 +119,23 @@ namespace Unity1Week_20230619.Main
                     if (state == ReelState.Stay)
                     {
                         int under = -1 * (int)(pos.localPosition.y / SLOTSIZE);  //何マス回転（移動）したか
-                        imgID = currentID[(under)];    //絵柄を特定
+                        StartCoroutine(CurrentIDUpDate(under));
+                        state = ReelState.End;
                     }
                 }
-
             }
+        }
+
+        IEnumerator CurrentIDUpDate(int under)
+        {
+            FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 1;
+            FadeCanvasObj.GetComponentInChildren<Image>().sprite = slot_sprite[currentID[(under)]];
+            FadeCanvasObj.transform.GetChild(0).DOScale(new Vector3(5f, 5f, 1f), 1.8f).SetEase(Ease.InSine); 
+            yield return new WaitForSeconds(2);
+            FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 0;
+            FadeCanvasObj.transform.GetChild(0).DOComplete();
+            FadeCanvasObj.transform.GetChild(0).localScale= new Vector3(0.01f, 0.01f, 1f);
+            imgID = currentID[(under)];
         }
 
         void Init()
