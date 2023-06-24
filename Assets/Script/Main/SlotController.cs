@@ -13,10 +13,12 @@ namespace Unity1Week_20230619.Main
     public class SlotController : MonoBehaviour, IController, IInitializa
     {
         public GameObject[] reels;
+        List<Transform> maskTransform = new List<Transform>();
         List<ReelController> rc = new List<ReelController>();
 
         [SerializeField] GameObject ResultPanel, ReelPanel, ReelResult;
         [SerializeField] GameObject ResultTextPrefab;
+        [SerializeField] GameObject arrow;
         [SerializeField] TextMeshProUGUI ScoreText;
         List<TextMeshProUGUI> ResultText = new List<TextMeshProUGUI>();
         GameController gameController;
@@ -39,6 +41,7 @@ namespace Unity1Week_20230619.Main
 
             for (int i = 0; i < reels.Length; i++)
             {
+                maskTransform.Add(reels[i].transform.root.transform); 
                 rc.Add(reels[i].GetComponent<ReelController>());
 
                 // コールバック設定
@@ -52,6 +55,7 @@ namespace Unity1Week_20230619.Main
         public void Control()
         {
             ScoreUpdate();
+            ArrowUpdate();
 
             if (drawResultCoroutine != null) return;
             //// TODO test用
@@ -229,6 +233,12 @@ namespace Unity1Week_20230619.Main
         {
             var rankingData = Data.instance.rankingDate;
             ScoreText.text = $"現在のスコア：{rankingData.Sum(data => data.Score)}";
+        }
+
+        void ArrowUpdate()
+        {
+            var index = Mathf.Clamp(Data.instance.rankingDate.Count, 0, maskTransform.Count-1);
+            arrow.transform.position = new Vector3(maskTransform[index].position.x, arrow.transform.position.y, 0f);
         }
     }
 }

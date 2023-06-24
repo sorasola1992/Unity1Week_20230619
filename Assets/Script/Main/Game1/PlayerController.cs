@@ -17,6 +17,7 @@ namespace Unity1Week_20230619.Main.Game1
         public PlayerParameter playerParameter { private set; get; }
         Rigidbody2D rb;
         SpriteRenderer playerSpriteRenderer;
+        ParticleSystem particleSystem;
         Sprite[] kanimg;
 
         [SerializeField] GameObject GaugeCanvas;
@@ -40,6 +41,7 @@ namespace Unity1Week_20230619.Main.Game1
         public void Init()
         {
             powergauge.Clear();
+            particleSystem = GetComponent<ParticleSystem>();
             rb = GetComponent<Rigidbody2D>();
             playerSpriteRenderer = GetComponent<SpriteRenderer>();
             playerParameter = transform.GetComponent<PlayerParameter>();
@@ -52,6 +54,7 @@ namespace Unity1Week_20230619.Main.Game1
             rb.simulated = false;
             GaugeCanvas.SetActive(true);
             MissObj.SetActive(false);
+            particleSystem.Stop();
 
             foreach (Transform child in GaugeCanvas.transform)
             {
@@ -142,6 +145,8 @@ namespace Unity1Week_20230619.Main.Game1
                 rb.AddForce(transform.up * burst * (int)(playerParameter.param.power * -0.1));
                 isLaunch = true;
                 rb.simulated = true;
+                particleSystem.Play();
+
             }
 
             if (!isLaunch)
@@ -159,6 +164,7 @@ namespace Unity1Week_20230619.Main.Game1
             if (rb.IsSleeping() || transform.position.y < -100)
             {
                 phase = Phase.Result;
+                particleSystem.Stop();
             }
 
         }
