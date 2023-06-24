@@ -33,13 +33,14 @@ namespace Unity1Week_20230619.Main.Game1
         bool isLaunch = false;
         float penalty = 0;
 
-        void Start()
-        {
-            kanimg = Resources.LoadAll<Sprite>("Game1");
-        }
+        //void Start()
+        //{
+        //    kanimg = Resources.LoadAll<Sprite>("Game1");
+        //}
 
         public void Init()
         {
+            if (kanimg==null) kanimg = Resources.LoadAll<Sprite>("Game1");
             powergauge.Clear();
             particleSystem = GetComponent<ParticleSystem>();
             rb = GetComponent<Rigidbody2D>();
@@ -55,6 +56,7 @@ namespace Unity1Week_20230619.Main.Game1
             GaugeCanvas.SetActive(true);
             MissObj.SetActive(false);
             particleSystem.Stop();
+            playerSpriteRenderer.sprite = kanimg[playerParameter.param.id];
 
             foreach (Transform child in GaugeCanvas.transform)
             {
