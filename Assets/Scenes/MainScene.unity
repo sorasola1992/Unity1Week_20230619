@@ -575,7 +575,7 @@ RectTransform:
   m_GameObject: {fileID: 173688318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1063360365}
@@ -837,8 +837,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1063360365}
-  m_RootOrder: 1
+  m_Father: {fileID: 282595204}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -886,7 +886,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5709,6 +5709,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 209261723}
   - {fileID: 1756109925}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -6615,7 +6616,6 @@ GameObject:
   - component: {fileID: 1063360365}
   - component: {fileID: 1063360364}
   - component: {fileID: 1063360363}
-  - component: {fileID: 1063360362}
   m_Layer: 0
   m_Name: Canvas_2
   m_TagString: Untagged
@@ -6623,18 +6623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!225 &1063360362
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063360361}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &1063360363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6667,7 +6655,7 @@ Canvas:
   m_GameObject: {fileID: 1063360361}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 957319455}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -6677,7 +6665,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!224 &1063360365
 RectTransform:
@@ -6692,7 +6680,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 173688319}
-  - {fileID: 209261723}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7856,7 +7843,7 @@ RectTransform:
   - {fileID: 765868473}
   - {fileID: 1324800736}
   m_Father: {fileID: 282595204}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8860,6 +8847,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -320
       objectReference: {fileID: 0}
+    - target: {fileID: 773253081788420841, guid: e86196591254fc44a90574f71d968eb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 773253081788420844, guid: e86196591254fc44a90574f71d968eb8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9184,6 +9175,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9048868301362280053, guid: e86196591254fc44a90574f71d968eb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86196591254fc44a90574f71d968eb8, type: 3}
 --- !u!1001 &3590468515983722961
@@ -9327,6 +9322,10 @@ PrefabInstance:
     - target: {fileID: 545915491663031422, guid: d553dde0eecdce7429dce7d7dbe1cdb2, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456121287184159464, guid: d553dde0eecdce7429dce7d7dbe1cdb2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844411482110323697, guid: d553dde0eecdce7429dce7d7dbe1cdb2, type: 3}
       propertyPath: m_Color.b
