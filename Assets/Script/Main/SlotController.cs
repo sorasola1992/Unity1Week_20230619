@@ -58,6 +58,7 @@ namespace Unity1Week_20230619.Main
         {
             ScoreUpdate();
             ArrowUpdate();
+            SpeedUpdate();
             ReachEffect();
 
 
@@ -251,7 +252,7 @@ namespace Unity1Week_20230619.Main
         void SpeedUpdate()
         {
             var index = Mathf.Clamp(Data.instance.rankingDate.Count, 0, maskTransform.Count - 1);
-            rc[index].speed = 0.5f + Data.instance.rankingDate.Sum(data => data.Score) * 0.0001f;
+            rc[index].speed = 0.5f + Data.instance.rankingDate.Sum(data => data.Score) * 0.0005f;
 
         }
 
