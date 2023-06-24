@@ -128,13 +128,20 @@ namespace Unity1Week_20230619.Main
 
         IEnumerator CurrentIDUpDate(int under)
         {
-            FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 1;
-            FadeCanvasObj.GetComponentInChildren<Image>().sprite = slot_sprite[currentID[(under)]];
-            FadeCanvasObj.transform.GetChild(0).DOScale(new Vector3(5f, 5f, 1f), 1.8f).SetEase(Ease.InSine); 
-            yield return new WaitForSeconds(2);
-            FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 0;
-            FadeCanvasObj.transform.GetChild(0).DOComplete();
-            FadeCanvasObj.transform.GetChild(0).localScale= new Vector3(0.01f, 0.01f, 1f);
+            var rankingData = Data.instance.rankingDate;
+            var judge = rankingData.All(data => data.GameID == currentID[(under)]);
+
+            // 一列揃っていない時
+            if (judge && rankingData.Count != REELMAX-1)
+            {
+                FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 1;
+                FadeCanvasObj.GetComponentInChildren<Image>().sprite = slot_sprite[currentID[(under)]];
+                FadeCanvasObj.transform.GetChild(0).DOScale(new Vector3(5f, 5f, 1f), 1.8f).SetEase(Ease.InSine);
+                yield return new WaitForSeconds(2);
+                FadeCanvasObj.GetComponent<CanvasGroup>().alpha = 0;
+                FadeCanvasObj.transform.GetChild(0).DOComplete();
+                FadeCanvasObj.transform.GetChild(0).localScale = new Vector3(0.01f, 0.01f, 1f);
+            }
             imgID = currentID[(under)];
         }
 
