@@ -105,6 +105,7 @@ namespace Unity1Week_20230619.Main.Game1
             {
                 penalty = 100;
                 MissObj.SetActive(true);
+                SoundManager.Instance.PlaySe(3);
             }
             if (penalty > 0)
             {
@@ -120,7 +121,7 @@ namespace Unity1Week_20230619.Main.Game1
                 playerParameter.param.id = 4;
                 playerSpriteRenderer.sprite = kanimg[playerParameter.param.id];
                 playerParameter.param.power++;
-
+                SoundManager.Instance.PlaySe(4);
             }
             if (Input.GetKeyDown(KeyCode.UpArrow) && playerParameter.param.id == 4)
             {
@@ -128,7 +129,7 @@ namespace Unity1Week_20230619.Main.Game1
                 playerParameter.param.id = 6;
                 playerSpriteRenderer.sprite = kanimg[playerParameter.param.id];
                 playerParameter.param.power++;
-
+                SoundManager.Instance.PlaySe(4);
             }
 
             for (var i = 1; i < powergauge.Count; i++)
@@ -148,7 +149,7 @@ namespace Unity1Week_20230619.Main.Game1
                 isLaunch = true;
                 rb.simulated = true;
                 particleSystem.Play();
-
+                SoundManager.Instance.PlaySe(5);
             }
 
             if (!isLaunch)

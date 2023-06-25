@@ -87,8 +87,10 @@ namespace Unity1Week_20230619
         /// 0.test用                    <br />
         /// 1.hit                       <br />
         /// 2.miss                      <br />
+        /// 3.bad                       <br />
+        /// 4.shuffle                   <br />
+        /// 5.launch                    <br />
         /// </summary>
-
         public void PlaySe(int index)
         {
             index = Mathf.Clamp(index, 0, se.Length);
