@@ -19,8 +19,8 @@ namespace Unity1Week_20230619.Main.Game3
 
             ScoreText.Clear();
 
-            base.Init(6);
-            Announce.text = "下味\nに、チャレンジ！";
+            base.Init(30);
+            Announce.text = "下味調理\nに、チャレンジ！";
 
             playerController = miniGameObject.transform.Find("Player").GetComponent<PlayerController>();
 
