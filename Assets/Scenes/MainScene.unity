@@ -6254,11 +6254,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &784898725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 416678806081082271, guid: 346f8284289905d4086ca65a6684c346, type: 3}
-  m_PrefabInstance: {fileID: 416678806438086970}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &815816650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6456121286833220089, guid: d553dde0eecdce7429dce7d7dbe1cdb2, type: 3}
@@ -6982,17 +6977,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324800735}
   m_CullTransparentMesh: 1
---- !u!114 &1373313832 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 416678807239791122, guid: 346f8284289905d4086ca65a6684c346, type: 3}
-  m_PrefabInstance: {fileID: 416678806438086970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffcdd83bbf15bc64fbe03e81549060db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1373679907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7827,8 +7811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameObject: {fileID: 8560463866758133846}
-  playerController: {fileID: 1373313832}
-  ResultCanvas: {fileID: 784898725}
 --- !u!1 &1756109924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8737,13 +8719,41 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 957319455}
+    - target: {fileID: 416678806305425909, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416678806305425909, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416678806305425909, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416678806305425909, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 686926864390500777, guid: 346f8284289905d4086ca65a6684c346, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 957319455}
+    - target: {fileID: 1750561271397483783, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750561271397483783, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8287951123390820716, guid: 346f8284289905d4086ca65a6684c346, type: 3}
       propertyPath: m_Name
       value: MiniGameObj_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287951123390820716, guid: 346f8284289905d4086ca65a6684c346, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287951123390820717, guid: 346f8284289905d4086ca65a6684c346, type: 3}
       propertyPath: m_Pivot.x
